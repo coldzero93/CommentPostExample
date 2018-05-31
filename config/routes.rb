@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #post
   get '/post/:id' => 'post#show'
   post '/post' => 'post#create'
-  patch '/post/:id' => 'post#update'
+  post '/post/:id' => 'post#update'
   delete '/post/:id' => 'post#delete'
   
   #comment
