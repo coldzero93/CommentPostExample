@@ -1,0 +1,18 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.content %></p>
+<br>
+———————————————————————————
+<br>
+<% @comments.each do |c| %>
+    <p><%=c.text%></p>
+    <a data-method="delete" href="/comment/<%=c.id%>">삭제</a>
+    <br>
+    ———————————————————————————
+<% end %>
+<form action="/comment/<%=@post.id%>" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="textarea">Comment</label>
+  <textarea name="input_comment" id="textarea"></textarea>
+  <br>
+  <input class="btn" type="submit" value="댓글">
+</form>

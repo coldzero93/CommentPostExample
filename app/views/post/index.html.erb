@@ -1,0 +1,22 @@
+<form action="/post" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="input_text">Title</label>
+  <input name="input_title" id="input_text" type="text">
+  <br><br>
+  <label for="textarea">Content</label>
+  <textarea name="input_content" id="textarea"></textarea>
+  <br>
+  <input class="btn" type="submit" value="작성">
+</form>
+<p>—————————————————————————</p>
+<% @posts.each do |p| %>
+  <div>
+    <h3><%=p.title%></h3>
+    <a data-method="get" href="/post/<%=p.id%>">읽기</a>
+    <a href="/edit/<%=p.id%>">수정</a>
+    <a data-method="delete" href="/post/<%=p.id%>">삭제</a>
+  </div>
+  <p>—————————————————————————</p>
+  <br>
+<% end %>
+<%= paginate @posts %>

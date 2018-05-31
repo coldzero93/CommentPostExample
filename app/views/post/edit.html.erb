@@ -1,0 +1,10 @@
+<form action="/post/<%= @post.id %>" method="patch">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="input_text">Title</label>
+  <input name="input_title" id="input_text" type="text" value="<%= @post.title %>">
+  <br /><br />
+  <label for="textarea">Content</label>
+  <textarea name="input_content" id="textarea"><%= @post.content %></textarea>
+  <br />
+  <input class="btn" type="submit" value="작성">
+</form>
